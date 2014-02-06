@@ -1,7 +1,9 @@
-%a{href: @link.link, :class => "link"}= @link.link
-%center{style: 'font-size: 72px;'} ↓
-%br
-%a{href: '/' + @link.urlhash, :class => "link"}= request.host + '/' + @link.urlhash
+.container
+  %a{href: '/' + @link.urlhash, :class => "link"}= request.host + '/' + @link.urlhash
+  %a{href: @link.link, :class => "link link-muted"}
+    %span ↳
+    = @link.link
+
 .link-meta
-  Hits:
+  Visitors:
   = @link.hits

@@ -62,7 +62,7 @@ input {
   position: absolute;
   top: 50%;
   left: 50%;
-  @include transform(translate(-50%, -60%));
+  @include transform(translate(-50%, -70%));
 }
 
 /* Result link */
@@ -75,11 +75,38 @@ input {
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.link-muted,
+.link-muted:visited {
+  color: #999;
+  font-size: 22px;
+
+  span {
+    color: #555;
+    margin-right: 10px;
+    margin-left: -15px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.link-muted:hover,
+.link-muted:active {
+  color: #666;
 }
 
 .link-meta {
   text-align: center;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  color: #999;
 }
 
 /* URL input */
