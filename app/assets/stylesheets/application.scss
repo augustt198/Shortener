@@ -134,10 +134,9 @@ input[type="submit"] {
 
 /* Flashes */
 .flash {
-  width: 600px;
-  height: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 600px;
+  width: 80%;
+  margin: 20px auto;
   text-align: center;
   line-height: 50px;
 }
