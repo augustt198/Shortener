@@ -10,7 +10,7 @@ class LinksController < ApplicationController
       redirect_to '/'
       return
     end
-    if uri.class != URI::HTTP or uri.class != URI::HTTPS
+    if uri.class != URI::HTTP and uri.class != URI::HTTPS
       flash[:error] = "Invalid URL"
       redirect_to '/'
       return
