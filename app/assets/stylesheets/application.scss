@@ -101,6 +101,14 @@ input[type="text"] {
   &:focus + input[type="submit"] {
     color: inherit;
   }
+
+  &.error {
+    border-color: #FC7C7C;
+
+    & + input[type="submit"] {
+      border-color: #FC7C7C;
+    }
+  }
 }
 
 /* Submit button */
