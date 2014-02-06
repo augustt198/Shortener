@@ -1,7 +1,8 @@
 .container
-
-  %a{href: @link.urlhash, :class => "link"}= "http://lolololololol.lol/#{@link.urlhash}"
-
+  %a{href: @link.link, :class => "link"}= @link.link
+  %center{style: 'font-size: 72px;'} ↓
+  %br
+  %a{href: '/' + @link.urlhash, :class => "link"}= request.host + '/' + @link.urlhash
   .link-meta
     Hits:
     = @link.hits
