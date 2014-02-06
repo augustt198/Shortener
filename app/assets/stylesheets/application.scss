@@ -1,17 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+/**
  *= require_self
  */
 
 @import "bourbon";
+
+$color-link: #3275DA;
 
 /**
  * Base styles
@@ -27,17 +20,20 @@ body {
 
 a,
 a:visited {
-  color: #3275DA;
+  color: $color-link;
   text-decoration: none;
-  @include transition(color ease .15s)
+  @include transition(color ease .1s)
 }
 
 a:hover,
 a:active {
-  color: darken(#3275DA, 15%);
+  color: darken($color-link, 15%);
 }
 
-/* Reset input styles */
+/**
+ * Reset input styles
+ */
+
 input {
   background: transparent;
   border: 1px solid;
@@ -52,10 +48,9 @@ input {
 }
 
 /**
- * The rest..
+ * Page container
  */
 
-/* Page container */
 .container {
   max-width: 600px;
   width: 80%;
@@ -63,51 +58,96 @@ input {
   top: 50%;
   left: 50%;
   @include transform(translate(-50%, -70%));
+  text-align: center;
 }
 
-/* Result link */
-.link {
-  font-size: 50px;
+/**
+ * Result output
+ */
+
+.output {
+  border: 0;
+  outline: 0;
+  font-size: 82px;
   text-align: center;
-  display: block;
+  margin-bottom: 30px
+}
+
+/**
+ * Copy hint
+ */
+
+.hint {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #999;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+
+  /* Larger hit target */
+  padding: 15px;
+  margin: -15px 0 15px;
+
+  @include animation-name(pulse);
+  @include animation-duration(1s);
+  @include animation-timing-function(ease);
+  @include animation-iteration-count(infinite);
+}
+
+@include keyframes(pulse) {
+  0%  { opacity: 1; }
+  25% { opacity: 1; }
+  50% { opacity: .3; }
+  75% { opacity: 1; }
+}
+
+/**
+ * Target link
+ */
+
+.target,
+.target:visited {
+  text-align: center;
+  color: #999;
+  font-size: 32px;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
-  margin-bottom: 20px;
-}
-
-.link-muted,
-.link-muted:visited {
-  color: #999;
-  font-size: 22px;
 
   span {
-    color: #555;
-    margin-right: 10px;
+    margin-right: 8px;
     margin-left: -15px;
     display: inline-block;
     position: relative;
-    top: 2px;
+    top: 3px;
   }
 }
 
-.link-muted:hover,
-.link-muted:active {
-  color: #666;
+.target:hover,
+.target:active {
+  color: $color-link;
 }
 
-.link-meta {
-  text-align: center;
+/**
+ * Link hit count
+ */
+
+.meta {
   position: absolute;
   bottom: 40px;
   left: 0;
   width: 100%;
   font-weight: 500;
-  font-size: 16px;
+  text-align: center;
   color: #999;
+  cursor: default;
 }
+
+
+
 
 /* URL input */
 input[type="text"] {

@@ -1,9 +1,10 @@
 .container
-  %a{href: '/' + @link.urlhash, :class => "link"}= request.host + '/' + @link.urlhash
-  %a{href: @link.link, :class => "link link-muted"}
+  %span.hint Copy
+  %input{value: request.host + '/' + @link.urlhash, :class => "output", :autofocus => true}
+  %a{href: @link.link, :class => "target"}
     %span ↳
     = @link.link
 
-.link-meta
+.meta
   Visitors:
   = @link.hits
