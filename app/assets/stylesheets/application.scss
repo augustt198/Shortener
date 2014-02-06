@@ -132,3 +132,21 @@ input[type="submit"] {
     color: inherit;
   }
 }
+
+/* Flashes */
+.flash {
+  width: 600px;
+  height: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  line-height: 50px;
+}
+
+.flash-error {
+  background-color: #ffaeae;
+}
+
+.flash-success {
+  background-color: #A7F0A4
+}
