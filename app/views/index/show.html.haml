@@ -1,5 +1,5 @@
 .container
-  %span.hint Copy
+  %span.hint{'data-clipboard-text' => request.host + '/' + @link.urlhash} Copy
   %input{value: request.host + '/' + @link.urlhash, :class => "output", :autofocus => true}
   %a{href: @link.link, :class => "target"}
     %span ↳

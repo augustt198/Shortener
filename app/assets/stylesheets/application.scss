@@ -79,10 +79,10 @@ input {
 
 .hint {
   display: inline-block;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: #999;
   text-align: center;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
 
   /* Larger hit target */
@@ -93,6 +93,10 @@ input {
   @include animation-duration(1s);
   @include animation-timing-function(ease);
   @include animation-iteration-count(infinite);
+
+  &.copied {
+    @include animation-name('');
+  }
 }
 
 @include keyframes(pulse) {
@@ -106,10 +110,8 @@ input {
  * Target link
  */
 
-.target,
-.target:visited {
+.target {
   text-align: center;
-  color: #999;
   font-size: 32px;
   max-width: 100%;
   overflow: hidden;
@@ -123,12 +125,8 @@ input {
     display: inline-block;
     position: relative;
     top: 3px;
+    color: #555;
   }
-}
-
-.target:hover,
-.target:active {
-  color: $color-link;
 }
 
 /**
@@ -140,10 +138,11 @@ input {
   bottom: 40px;
   left: 0;
   width: 100%;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   color: #999;
   cursor: default;
+  text-transform: lowercase;
 }
 
 
@@ -213,5 +212,5 @@ input[type="submit"] {
 }
 
 .flash-success {
-  background-color: #A7F0A4
+  background-color: #A7F0A4;
 }
