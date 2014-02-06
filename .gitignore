@@ -17,3 +17,4 @@
 
 #database configuration
 /config/mongoid.yml
+*.lock

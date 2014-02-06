@@ -37,6 +37,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.14)
+    bourbon (3.1.1)
+      sass (>= 3.2.0)
+      thor
     bson (2.2.0)
     builder (3.1.4)
     coffee-rails (4.0.1)
@@ -127,6 +130,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon
   coffee-rails (~> 4.0.0)
   haml
   jbuilder (~> 1.2)
