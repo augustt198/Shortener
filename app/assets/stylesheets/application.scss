@@ -13,6 +13,114 @@
 
 @import "bourbon";
 
+/**
+ * Base styles
+ */
+
 body {
   padding: 0;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;
+  font-weight: 300;
+}
+
+a,
+a:visited {
+  color: #3275DA;
+  text-decoration: none;
+  @include transition(color ease .15s)
+}
+
+a:hover,
+a:active {
+  color: darken(#3275DA, 15%);
+}
+
+/* Reset input styles */
+input {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid;
+  @include box-sizing(border-box);
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  @include user-select(none);
+  white-space: normal;
+  width: 100%;
+}
+
+/**
+ * The rest..
+ */
+
+/* Page container */
+.container {
+  max-width: 600px;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -60%));
+}
+
+/* Result link */
+.link {
+  font-size: 50px;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  margin-bottom: 30px;
+}
+
+.link-meta {
+  text-align: center;
+}
+
+/* URL input */
+input[type="text"] {
+  font-size: 34px;
+  padding: 18px 130px 18px 25px;
+  border: 2px solid #ccc;
+  outline: 0;
+  text-align: left;
+  height: 85px;
+
+  &:focus + input[type="submit"] {
+    color: inherit;
+  }
+}
+
+/* Submit button */
+input[type="submit"] {
+  padding: 18px 25px;
+  border: 2px solid #ccc;
+  outline: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  min-width: 100px;
+  font-size: 50px;
+  height: 85px;
+  line-height: 53px;
+  color: #999;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+  }
 }

@@ -1,6 +1,7 @@
-%h1 This link goes to:
-%a{href: @link.link}= @link.link
-%br
-this link has
-= @link.hits
-hits
+.container
+
+  %a{href: @link.urlhash, :class => "link"}= "http://lolololololol.lol/#{@link.urlhash}"
+
+  .link-meta
+    Hits:
+    = @link.hits
