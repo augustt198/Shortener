@@ -39,22 +39,15 @@ a:active {
 
 /* Reset input styles */
 input {
-  -webkit-appearance: none;
   background: transparent;
   border: 1px solid;
   @include box-sizing(border-box);
   color: inherit;
-  cursor: pointer;
   display: block;
   font: inherit;
   line-height: normal;
   margin: 0;
   padding: 0;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  @include user-select(none);
-  white-space: normal;
   width: 100%;
 }
 
@@ -113,9 +106,15 @@ input[type="text"] {
 
 /* Submit button */
 input[type="submit"] {
+  -webkit-appearance: none;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  @include user-select(none);
   padding: 18px 25px;
   border: 2px solid #ccc;
   outline: 0;
+  cursor: pointer;
   position: absolute;
   right: 0;
   top: 0;
