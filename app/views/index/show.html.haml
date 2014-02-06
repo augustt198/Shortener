@@ -1,9 +1,14 @@
+%div{:class => 'flash flash-success', id: 'success-flash', style: 'display:none;'} Link Copied!
 .container
   %a{href: '/' + @link.urlhash, :class => "link"}= request.host + '/' + @link.urlhash
   %a{href: @link.link, :class => "link link-muted"}
     %span ↳
     = @link.link
-
+  %button{id: 'copy-button', 'data-clipboard-text' => request.host + '/' + @link.urlhash, title: 'Click to copy URL'}
+    Copy URL
 .link-meta
   Visitors:
   = @link.hits
+
+%script{src: '/assets/ZeroClipboard.min.js'}
+%script{src: '/assets/clipboard.js'}
