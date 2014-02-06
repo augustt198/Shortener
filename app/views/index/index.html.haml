@@ -1,8 +1,7 @@
-.container
-  = form_for Link.new do |f|
-    = f.text_field :link,
-      placeholder: "http:// ...",
-      autofocus: true,
-      autocomplete: "off",
-      :class => flash[:error] != nil ? "error" : ""
-    = f.submit "☞"
+= form_for Link.new do |f|
+  = f.text_field :link,
+    placeholder: "http:// ...",
+    autofocus: true,
+    autocomplete: "off",
+    :class => flash[:error] != nil ? "error" : ""
+  = f.submit "☞"
