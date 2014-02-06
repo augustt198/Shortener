@@ -3,7 +3,8 @@
   %input{value: request.host + '/' + @link.urlhash, :class => "output", :autofocus => true}
   %a{href: @link.link, :class => "target"}
     %span ↳
-    = @link.link
+    - link = @link.link
+    = link.length > 35 ? link.slice(0, 35) + '...' : link
 
 .meta
   Visitors:
