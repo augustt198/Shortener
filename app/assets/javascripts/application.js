@@ -7,11 +7,11 @@
   document.addEventListener('DOMContentLoaded', function() {
 
     var output = document.querySelectorAll('.output')[0];
-    var hint = document.querySelectorAll('.hint')[0];
+    var copy = document.querySelectorAll('.copy')[0];
 
 
     ZeroClipboard.config({moviePath: '/assets/ZeroClipboard.swf'});
-    var client = new ZeroClipboard(hint);
+    var client = new ZeroClipboard(copy);
 
     client.addEventListener('dataRequested', function(client, args) {
       client.setText(output.value);
@@ -31,12 +31,12 @@
     });
 
     function outputCopied() {
-      hint.textContent = 'Copied!'
+      copy.textContent = 'Copied!'
 
-      if (hint.classList) {
-        hint.classList.add('copied');
+      if (copy.classList) {
+        copy.classList.add('copied');
       } else {
-        hint.className += ' ' + 'copied'
+        copy.className += ' ' + 'copied'
       }
     }
 
