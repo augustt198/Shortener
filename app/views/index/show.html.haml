@@ -1,10 +1,9 @@
 .container
-  %span.hint{'data-clipboard-text' => request.host + '/' + @link.urlhash} Copy
-  %input{value: request.host + '/' + @link.urlhash, :class => "output", :autofocus => true}
-  %a{href: @link.link, :class => "target"}
-    %span ↳
-    - link = @link.link
-    = link.length > 35 ? link.slice(0, 35) + '...' : link
+  %span.copy{'data-clipboard-text' => request.host + '/' + @link.urlhash} Copy
+  %input{value: request.host + '/' + @link.urlhash, :class => "output", :autofocus => true, :readonly => true}
+  %a{href: @link.link, :class => "target"}>
+    %span> ↳
+    = @link.link
 
 .meta
   Visitors:

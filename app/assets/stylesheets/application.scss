@@ -4,11 +4,15 @@
 
 @import "bourbon";
 
-$color-link: #3275DA;
+$color-link: #2d72d9;
 
 /**
  * Base styles
  */
+
+* {
+  @include box-sizing(border-box);
+}
 
 body {
   padding: 0;
@@ -22,12 +26,13 @@ a,
 a:visited {
   color: $color-link;
   text-decoration: none;
-  @include transition(color ease .1s)
+  @include transition(color ease .1s);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 a:hover,
 a:active {
-  color: darken($color-link, 15%);
+  color: darken($color-link, 10%);
 }
 
 /**
@@ -37,7 +42,6 @@ a:active {
 input {
   background: transparent;
   border: 1px solid;
-  @include box-sizing(border-box);
   color: inherit;
   display: block;
   font: inherit;
@@ -45,6 +49,7 @@ input {
   margin: 0;
   padding: 0;
   width: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 /**
@@ -52,13 +57,12 @@ input {
  */
 
 .container {
-  max-width: 600px;
-  width: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   @include transform(translate(-50%, -70%));
   text-align: center;
+  width: 100%;
 }
 
 /**
@@ -70,7 +74,37 @@ input {
   outline: 0;
   font-size: 82px;
   text-align: center;
-  margin-bottom: 30px
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto 30px;
+}
+
+/**
+ * Target link
+ */
+
+.target {
+  display: inline-block;
+  text-align: center;
+  font-size: 32px;
+  max-width: 100%;
+  padding: 0 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 680px;
+  margin: 0 auto;
+
+  span {
+    margin-right: 10px;
+    margin-left: -15px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    color: #555;
+    @include user-select(none);
+  }
 }
 
 /**
@@ -84,15 +118,15 @@ input {
   text-align: center;
   font-weight: 400;
   cursor: pointer;
-
-  /* Larger hit target */
-  padding: 15px;
-  margin: -15px 0 15px;
-
+  @include user-select(none);
   @include animation-name(pulse);
   @include animation-duration(1s);
   @include animation-timing-function(ease);
   @include animation-iteration-count(infinite);
+
+  /* Larger hit target */
+  padding: 15px;
+  margin: -15px 0 15px;
 
   &.copied {
     @include animation-name('');
@@ -104,29 +138,6 @@ input {
   25% { opacity: 1; }
   50% { opacity: .3; }
   75% { opacity: 1; }
-}
-
-/**
- * Target link
- */
-
-.target {
-  text-align: center;
-  font-size: 32px;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-
-  span {
-    margin-right: 8px;
-    margin-left: -15px;
-    display: inline-block;
-    position: relative;
-    top: 3px;
-    color: #555;
-  }
 }
 
 /**
@@ -149,7 +160,8 @@ input {
 
 
 /* URL input */
-input[type="text"] {
+input[type="text"],
+input[type="url"] {
   font-size: 34px;
   padding: 18px 130px 18px 25px;
   border: 2px solid #ccc;
