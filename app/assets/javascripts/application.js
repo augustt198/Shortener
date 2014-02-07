@@ -43,10 +43,6 @@
     function selectOutput() {
       output.focus();
       output.select();
-
-      // For iOS
-      output.selectionStart = 0;
-      output.selectionEnd = output.value.length;
     };
 
     output.addEventListener('click', selectOutput);
