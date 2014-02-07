@@ -5,4 +5,7 @@
       autofocus: true,
       autocomplete: "off",
       :class => flash[:error] != nil ? "error" : ""
+    = f.text_field :urlhash,
+      placeholder: "Alias",
+      autocomplete: "off"
     = f.submit "☞"

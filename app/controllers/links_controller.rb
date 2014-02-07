@@ -26,18 +26,34 @@ class LinksController < ApplicationController
       redirect_to '/'
       return
     end
-    while true do
-      urlhash = Digest::MD5.hexdigest(Time.now.to_s).slice(0, 4)
-      if Link.where(urlhash: urlhash).first == nil
-        link = Link.create
-        link.link = url
-        link.urlhash = urlhash
-        link.hits = 0
-        link.save!
-        redirect_to '/show/' + link.urlhash
-        break
+    name = params[:link][:urlhash]
+    useAlias = false
+    if name != ""
+      if Link.where(urlhash: name).first != nil
+        flash[:error] = "Alias taken."
+        redirect_to '/'
+        return
+      else
+        useAlias = true
       end
     end
+
+    if !useAlias
+      while true do
+        urlhash = Digest::MD5.hexdigest(Time.now.to_s).slice(0, 4)
+        if Link.where(urlhash: urlhash).first == nil
+          name = urlhash
+          break
+        end
+      end
+    end
+    link = Link.create
+    link.link = url
+    link.urlhash = name
+    link.hits = 0
+    link.save!
+    redirect_to '/show/' + link.urlhash
+
   end
 
 end
