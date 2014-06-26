@@ -14,7 +14,7 @@
     var client = new ZeroClipboard(copy);
 
     client.addEventListener('dataRequested', function(client, args) {
-      client.setText(output.value);
+      client.setText('http://' + output.value);
       outputCopied();
     });
 
