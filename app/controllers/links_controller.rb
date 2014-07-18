@@ -1,6 +1,6 @@
-class LinksController < ApplicationController
+require 'digest/md5'
 
-  require 'digest/md5'
+class LinksController < ApplicationController
 
   def create
     url = params[:link][:link]
@@ -27,18 +27,18 @@ class LinksController < ApplicationController
       return
     end
     name = params[:link][:urlhash]
-    useAlias = false
+    use_alias = false
     if name != ""
       if Link.where(urlhash: name).first != nil
         flash[:error] = "Alias taken."
         redirect_to '/'
         return
       else
-        useAlias = true
+        use_alias = true
       end
     end
 
-    if !useAlias
+    if !use_alias
       while true do
         urlhash = Digest::MD5.hexdigest(Time.now.to_s).slice(0, 4)
         if Link.where(urlhash: urlhash).first == nil
@@ -53,7 +53,6 @@ class LinksController < ApplicationController
     link.hits = 0
     link.save!
     redirect_to '/show/' + link.urlhash
-
   end
 
 end

@@ -2,9 +2,9 @@ Shortener::Application.routes.draw do
 
   resources :links
 
-  root 'index#index'
+  root 'home#index'
 
-  match ':urlhash' => 'index#reroute', via: [:get, :post]
-  match 'show/:urlhash' => 'index#show', via: [:get, :post]
+  match ':urlhash' => 'home#reroute', via: [:get, :post]
+  match 'show/:urlhash' => 'home#show', via: [:get, :post]
 
 end

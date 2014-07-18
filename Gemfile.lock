@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/mongoid/mongoid.git
-  revision: 5b0f031992cbec66d68c6cb288a4edb952ed5336
-  specs:
-    mongoid (4.0.0.beta1)
-      activemodel (>= 4.0.0)
-      moped (~> 2.0.beta6)
-      origin (~> 2.1)
-      tzinfo (>= 0.3.37)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,7 +30,7 @@ GEM
     bourbon (3.1.1)
       sass (>= 3.2.0)
       thor
-    bson (2.2.0)
+    bson (2.3.0)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -49,7 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    connection_pool (1.2.0)
+    connection_pool (2.0.0)
     erubis (2.7.0)
     execjs (2.0.2)
     haml (4.0.5)
@@ -68,13 +58,18 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
-    moped (2.0.0.beta6)
+    mongoid (4.0.0)
+      activemodel (~> 4.0)
+      moped (~> 2.0.0)
+      origin (~> 2.1)
+      tzinfo (>= 0.3.37)
+    moped (2.0.0)
       bson (~> 2.2)
-      connection_pool (~> 1.2)
+      connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.8.4)
     optionable (0.2.0)
-    origin (2.1.0)
+    origin (2.1.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -135,7 +130,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.2)
   jquery-rails
-  mongoid!
+  mongoid (~> 4.0.0)
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sdoc

@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'haml'
 
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
