@@ -65,6 +65,28 @@ input {
   width: 100%;
 }
 
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 /**
  * Result output
  */
@@ -157,21 +179,19 @@ input {
 }
 
 
+/**
+ * URL input
+ */
 
-
-/* URL input */
-input[type="text"],
-input[type="url"] {
-  font-size: 34px;
-  padding: 18px 130px 18px 25px;
-  border: 2px solid #ccc;
+.url-input {
+  border: 0;
   outline: 0;
-  text-align: left;
-  height: 85px;
-
-  &:focus + input[type="submit"] {
-    color: inherit;
-  }
+  font-size: 82px;
+  text-align: center;
+  border-bottom: 3px solid #999;
+  width: 100%;
+  padding: 30px 40px;
+  margin: 0 auto 30px;
 
   &.error {
     border-color: #FC7C7C;
@@ -180,6 +200,22 @@ input[type="url"] {
       border-color: #FC7C7C;
     }
   }
+}
+
+.input-clone-wrap {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  white-space: pre;
+}
+
+.input-clone {
+  @extend input;
+  @extend .url-input;
+  visibility: hidden;
+  white-space: pre;
+  width: auto;
+  display: inline-block;
 }
 
 /* Submit button */
@@ -202,12 +238,17 @@ input[type="submit"] {
   height: 85px;
   line-height: 53px;
   color: #999;
+  visibility: hidden;
 
   &:hover,
   &:active,
   &:focus {
     color: inherit;
   }
+}
+
+.alias-input {
+  visibility: hidden;
 }
 
 /* Flashes */

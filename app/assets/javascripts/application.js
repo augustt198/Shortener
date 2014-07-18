@@ -7,46 +7,80 @@
   document.addEventListener('DOMContentLoaded', function() {
 
     var output = document.querySelectorAll('.output')[0];
-    var copy = document.querySelectorAll('.copy')[0];
 
+    if (output) {
 
-    ZeroClipboard.config({moviePath: '/assets/ZeroClipboard.swf'});
-    var client = new ZeroClipboard(copy);
+      var copy = document.querySelectorAll('.copy')[0];
 
-    client.addEventListener('dataRequested', function(client, args) {
-      client.setText(output.value);
-      outputCopied();
-    });
+      ZeroClipboard.config({moviePath: '/assets/ZeroClipboard.swf'});
+      var client = new ZeroClipboard(copy);
 
-    KeyboardJS.on('ctrl+c', function() {
-      if (document.activeElement == output) {
+      client.addEventListener('dataRequested', function(client, args) {
+        client.setText('http://' + output.value);
         outputCopied();
-      }
-    });
+      });
 
-    KeyboardJS.on('command+c', function() {
-      if (document.activeElement == output) {
-        outputCopied();
-      }
-    });
+      KeyboardJS.on('ctrl+c', function() {
+        if (document.activeElement == output) {
+          outputCopied();
+        }
+      });
 
-    function outputCopied() {
-      copy.textContent = 'Copied!'
+      KeyboardJS.on('command+c', function() {
+        if (document.activeElement == output) {
+          outputCopied();
+        }
+      });
 
-      if (copy.classList) {
-        copy.classList.add('copied');
-      } else {
-        copy.className += ' ' + 'copied'
+      function outputCopied() {
+        copy.textContent = 'Copied!'
+
+        if (copy.classList) {
+          copy.classList.add('copied');
+        } else {
+          copy.className += ' ' + 'copied'
+        }
       }
+
+      function selectOutput() {
+        output.focus();
+        output.select();
+      };
+
+      output.addEventListener('click', selectOutput);
+      output.addEventListener('touchstart', selectOutput);
     }
 
-    function selectOutput() {
-      output.focus();
-      output.select();
-    };
 
-    output.addEventListener('click', selectOutput);
-    output.addEventListener('touchstart', selectOutput);
+    var urlInput = document.querySelectorAll('.url-input')[0];
+    var placeholder = urlInput.getAttribute("placeholder");
+    var cloneWrap = document.createElement("div")
+    var clone = document.createElement("span");
+    var theWidth = 0;
+    var value = 0;
+
+    cloneWrap.className = "input-clone-wrap";
+    clone.className = "input-clone";
+    document.body.appendChild(cloneWrap);
+    cloneWrap.appendChild(clone);
+
+    clone.innerHTML = placeholder;
+    urlInput.style.width = clone.offsetWidth + "px";
+    urlInput.style.minWidth = clone.offsetWidth + "px";
+
+    window.adjustWidthOfInput = function() {
+      value = urlInput.value.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      console.log(value.length)
+      if (value.length !== 0) {
+        clone.innerHTML = value;
+      } else {
+        clone.innerHTML = placeholder;
+      }
+      theWidth = clone.offsetWidth;
+      urlInput.style.width = theWidth + "px";
+    }
+
+    urlInput.addEventListener('input', window.adjustWidthOfInput);
 
   });
 

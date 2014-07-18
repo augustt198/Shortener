@@ -1,11 +1,12 @@
 .container
   = form_for Link.new do |f|
     = f.text_field :link,
-      placeholder: "http:// ...",
+      placeholder: "paste link",
       autofocus: true,
       autocomplete: "off",
-      :class => flash[:error] != nil ? "error" : ""
+      :class => "url-input #{flash[:error] != nil ? "error" : ""}"
     = f.text_field :urlhash,
       placeholder: "Alias",
-      autocomplete: "off"
+      autocomplete: "off",
+      :class => "alias-input"
     = f.submit "☞"
