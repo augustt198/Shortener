@@ -1,0 +1,6 @@
+.graph-container
+  - views.each do |group|
+    - height = (group['views'].to_f / highest) * 100
+    .graph-bar{style: "height: #{height}px;"}
+      .rotate
+        = group['date'].strftime('%D')

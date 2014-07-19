@@ -50,7 +50,6 @@ class LinksController < ApplicationController
     link = Link.create
     link.link = url
     link.urlhash = name
-    link.hits = 0
     link.save!
     redirect_to '/show/' + link.urlhash
   end

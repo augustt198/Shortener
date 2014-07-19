@@ -8,3 +8,4 @@
 .meta
   Visitors:
   = @link.hits
+= render partial: 'home/partials/view_graph', locals: {views: @link.view_dates, highest: @highest_view}
