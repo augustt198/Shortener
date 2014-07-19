@@ -4,7 +4,7 @@
       placeholder: "paste link",
       autofocus: true,
       autocomplete: "off",
-      :class => "url-input #{flash[:error] != nil ? "error" : ""}"
+      :class => "url-input #{flash[:error] ? "error" : ""}"
     = f.text_field :urlhash,
       placeholder: "Alias",
       autocomplete: "off",

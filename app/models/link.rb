@@ -23,4 +23,11 @@ class Link
     date
   end
 
+  def self.generate_hash
+    opts = (('a'..'z').to_a + (0..9).to_a)
+    str = ''
+    4.times { str += opts.sample.to_s}
+    str
+  end
+
 end

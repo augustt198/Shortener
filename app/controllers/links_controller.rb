@@ -40,7 +40,7 @@ class LinksController < ApplicationController
 
     if !use_alias
       while true do
-        urlhash = Digest::MD5.hexdigest(Time.now.to_s).slice(0, 4)
+        urlhash = Link.generate_hash
         if Link.where(urlhash: urlhash).first == nil
           name = urlhash
           break

@@ -1,5 +1,6 @@
 //= require ZeroClipboard.min.js
 //= require keyboard.js
+//= require jquery
 
 (function (window, document) {
 
@@ -70,7 +71,7 @@
 
     window.adjustWidthOfInput = function() {
       value = urlInput.value.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      console.log(value.length)
+      //console.log(value.length)
       if (value.length !== 0) {
         clone.innerHTML = value;
       } else {

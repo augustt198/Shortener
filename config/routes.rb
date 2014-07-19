@@ -1,6 +1,6 @@
 Shortener::Application.routes.draw do
 
-  resources :links
+  resources :links, only: [:create]
 
   root 'home#index'
 
