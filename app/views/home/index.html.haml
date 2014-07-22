@@ -4,9 +4,11 @@
       placeholder: "paste link",
       autofocus: true,
       autocomplete: "off",
-      :class => "url-input #{flash[:error] ? "error" : ""}"
+      class: "url-input #{flash[:error] ? 'error' : ''}"
+      
     = f.text_field :urlhash,
       placeholder: "Alias",
       autocomplete: "off",
-      :class => "alias-input"
+      class: "alias-input",
+      maxlength: 20
     = f.submit "☞"
