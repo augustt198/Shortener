@@ -6,10 +6,6 @@
 
 $color-link: #2d72d9;
 
-/**
- * Base styles
- */
-
 * {
   @include box-sizing(border-box);
 }
@@ -60,31 +56,9 @@ input {
   position: absolute;
   top: 50%;
   left: 50%;
-  @include transform(translate(-50%, -70%));
   text-align: center;
   width: 100%;
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
+  @include transform(translate(-50%, -70%));
 }
 
 /**
@@ -178,84 +152,56 @@ input {
   text-transform: lowercase;
 }
 
-
 /**
  * URL input
  */
+
+.control {
+  position: relative;
+
+  &:after {
+    content: "";
+    top: calc(100% - 3px);
+    height: 3px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    @include transform(translateX(-50%));
+    background: #999;
+  }
+
+  &.error:after {
+    background: #FC7C7C;
+  }
+}
 
 .url-input {
   border: 0;
   outline: 0;
   font-size: 82px;
   text-align: center;
-  border-bottom: 3px solid #999;
   width: 100%;
-  padding: 30px 40px;
+  padding: 30px 0;
   margin: 0 auto 30px;
-
-  &.error {
-    border-color: #FC7C7C;
-
-    & + input[type="submit"] {
-      border-color: #FC7C7C;
-    }
-  }
 }
 
-.input-clone-wrap {
-  overflow: hidden;
-  position: absolute;
-  width: 0;
-  white-space: pre;
-}
-
-.input-clone {
-  @extend input;
-  @extend .url-input;
-  visibility: hidden;
-  white-space: pre;
-  width: auto;
-  display: inline-block;
-}
-
-/* Submit button */
 input[type="submit"] {
-  -webkit-appearance: none;
-  text-align: center;
-  text-decoration: none;
-  white-space: normal;
-  @include user-select(none);
-  padding: 18px 25px;
-  border: 2px solid #ccc;
-  outline: 0;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: auto;
-  min-width: 100px;
-  font-size: 50px;
-  height: 85px;
-  line-height: 53px;
-  color: #999;
   visibility: hidden;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: inherit;
-  }
+  position: absolute;
 }
 
 .alias-input {
   @extend .url-input;
-  font-size: 40px;
-  width: 300px;
-  padding: 15px;
-  //visibility: hidden;
+  font-size: 26px;
+  padding: 3px 0 0;
+  margin: 0;
 }
 
-/* Flashes */
+/**
+ * Error flash
+ */
+
 .flash {
   max-width: 600px;
   width: 80%;
@@ -272,7 +218,10 @@ input[type="submit"] {
   background-color: #A7F0A4;
 }
 
-/* Graphs */
+/**
+ * Visitor graphs
+ */
+
 .graph-container {
   position: absolute;
   bottom: 0;
@@ -282,31 +231,26 @@ input[type="submit"] {
 
 .graph-bar {
   background-color: #eee;
-  width: 15px;
+  width: 20px;
   display: inline-block;
-  margin: -3px;
-  margin-bottom: 0px;
+  margin: 0 0px -5px 5px;
 }
 
-.rotate {
+.graph-label {
   position: absolute;
-  /* Safari */
-  -webkit-transform: rotate(-90deg);
-  /* Firefox */
-  -moz-transform: rotate(-90deg);
-  /* IE */
-  -ms-transform: rotate(-90deg);
-  /* Opera */
-  -o-transform: rotate(-90deg);
-  /* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  @include transform(rotate(-90deg));
   font-size: 10px;
   margin-left: -15px;
-  margin-top: -30px;
+  margin-top: -35px;
   color: #E2E1E1;
+  cursor: default;
+  letter-spacing: 1px;
 }
 
-/* Home button */
+/**
+ * Home button
+ */
+
 .home-btn {
   top: 0;
   left: 0;

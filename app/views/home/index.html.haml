@@ -1,13 +1,16 @@
 .container
   = form_for Link.new do |f|
-    = f.text_field :link,
-      placeholder: "paste link",
-      autofocus: true,
-      autocomplete: "off",
-      class: "url-input #{flash[:error] ? 'error' : ''}"
-      
+
+    .control{class: "#{flash[:error] ? 'error' : ''}"}
+      = f.text_field :link,
+        placeholder: "paste link",
+        autofocus: true,
+        autocomplete: "off",
+        class: "url-input #{flash[:error] ? 'error' : ''}"
+
+
     = f.text_field :urlhash,
-      placeholder: "Alias",
+      placeholder: "Optional alias",
       autocomplete: "off",
       class: "alias-input",
       maxlength: 20
